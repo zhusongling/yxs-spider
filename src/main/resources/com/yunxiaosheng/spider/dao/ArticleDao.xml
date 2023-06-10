@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunxiaosheng.spider.dao.ArticleDao">
+    <resultMap id="BaseResultMap" type="com.yunxiaosheng.spider.dto.Article">
+        <id column="article_id" jdbcType="VARCHAR" property="articleId"/>
+        <result column="category_id" jdbcType="VARCHAR" property="categoryId"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="image_url" jdbcType="VARCHAR" property="imageUrl"/>
+        <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime"/>
+        <result column="page_view" jdbcType="INTEGER" property="pageView"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="is_delete" jdbcType="BIT" property="isDelete"/>
+        <result column="begin_time" jdbcType="DATE" property="beginTime"/>
+        <result column="end_time" jdbcType="DATE" property="endTime"/>
+        <result column="college_id" jdbcType="VARCHAR" property="collegeId"/>
+    </resultMap>
+
+    <insert id="insertSelective" parameterType="com.yunxiaosheng.spider.dto.Article">
+        insert into tb_article
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="articleId != null">
+                article_id,
+            </if>
+            <if test="categoryId != null">
+                category_id,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="imageUrl != null">
+                image_url,
+            </if>
+            <if test="releaseTime != null">
+                release_time,
+            </if>
+            <if test="pageView != null">
+                page_view,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+            <if test="isDelete != null">
+                is_delete,
+            </if>
+            <if test="beginTime != null">
+                begin_time,
+            </if>
+            <if test="endTime != null">
+                end_time,
+            </if>
+            <if test="collegeId != null">
+                college_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="articleId != null">
+                #{articleId,jdbcType=VARCHAR},
+            </if>
+            <if test="categoryId != null">
+                #{categoryId,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="imageUrl != null">
+                #{imageUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="releaseTime != null">
+                #{releaseTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="pageView != null">
+                #{pageView,jdbcType=INTEGER},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="isDelete != null">
+                #{isDelete,jdbcType=BIT},
+            </if>
+            <if test="beginTime != null">
+                #{beginTime,jdbcType=DATE},
+            </if>
+            <if test="endTime != null">
+                #{endTime,jdbcType=DATE},
+            </if>
+            <if test="collegeId != null">
+                #{collegeId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

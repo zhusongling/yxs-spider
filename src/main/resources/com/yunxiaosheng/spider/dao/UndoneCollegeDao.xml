@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yunxiaosheng.spider.dao.UndoneCollegeDao">
+
+    <resultMap id="BaseResultMap" type="com.yunxiaosheng.spider.dto.UndoneCollege">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="college_name" property="collegeName" jdbcType="VARCHAR"/>
+        <result column="href" property="href" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="insertCollege" parameterType="com.yunxiaosheng.spider.dto.UndoneCollege">
+        insert into tb_undone_college
+        <trim prefix="(" prefixOverrides="" suffixOverrides="," suffix=")">
+            id,
+            <if test="collegeName !=null and collegeName != ''">
+                college_name,
+            </if>
+            <if test="href !=null and href !=''">
+                href
+            </if>
+        </trim>
+        <trim prefix="VALUES (" prefixOverrides="" suffixOverrides="," suffix=")">
+            <choose>
+                <when test="id != null and id != ''">
+                    #{id, jdbcType=VARCHAR},
+                </when>
+                <otherwise>UUID(),</otherwise>
+            </choose>
+            <if test="collegeName != null and collegeName != ''">
+                #{collegeName, jdbcType=VARCHAR},
+            </if>
+            <if test="href != null and href != ''">
+                #{href, jdbcType=VARCHAR}
+            </if>
+        </trim>
+    </insert>
+
+    <select id="selectClollegeList" resultMap="BaseResultMap">
+        SELECT
+        *
+        FROM tb_undone_college
+    </select>
+
+</mapper>
