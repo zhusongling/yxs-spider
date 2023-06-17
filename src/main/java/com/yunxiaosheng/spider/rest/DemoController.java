@@ -75,7 +75,7 @@ public class DemoController {
         for (int i = 0; i < page.length; i++) {
             String url = page[i];
             System.out.println("===========" + url);
-            getContent(url);
+//            getContent(url);
         }
     }
 

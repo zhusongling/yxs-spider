@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunxiaosheng.spider.dao.EnrollScoreDao">
+
+    <resultMap id="BaseResultMap" type="com.yunxiaosheng.spider.dto.EnrollScore">
+        <id column="ID" jdbcType="VARCHAR" property="id"/>
+        <result column="college_id" jdbcType="VARCHAR" property="collegeId"/>
+        <result column="enroll_id" jdbcType="VARCHAR" property="enrollId"/>
+        <result column="enroll_name" jdbcType="VARCHAR" property="enrollName"/>
+        <result column="year" jdbcType="INTEGER" property="year"/>
+        <result column="subject_code" jdbcType="VARCHAR" property="subjectCode"/>
+        <result column="subject_name" jdbcType="VARCHAR" property="subjectName"/>
+        <result column="batch_code" jdbcType="VARCHAR" property="batchCode"/>
+        <result column="batch_name" jdbcType="VARCHAR" property="batchName"/>
+        <result column="deliver_type" jdbcType="INTEGER" property="deliverType"/>
+        <result column="plan_num" jdbcType="INTEGER" property="planNum"/>
+        <result column="actual_num" jdbcType="INTEGER" property="actualNum"/>
+        <result column="max_score" jdbcType="FLOAT" property="maxScore"/>
+        <result column="min_score" jdbcType="FLOAT" property="minScore"/>
+        <result column="avg_score" jdbcType="FLOAT" property="avgScore"/>
+        <result column="max_rank" jdbcType="INTEGER" property="maxRank"/>
+        <result column="min_rank" jdbcType="INTEGER" property="minRank"/>
+        <result column="avg_rank" jdbcType="INTEGER" property="avgRank"/>
+    </resultMap>
+
+
+    <insert id="insertEnrollScore" parameterType="com.yunxiaosheng.spider.dto.EnrollScore">
+        insert into tb_ha_enroll_score
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="collegeId != null">
+                college_id,
+            </if>
+            <if test="enrollId != null">
+                enroll_id,
+            </if>
+            <if test="enrollName != null">
+                enroll_name,
+            </if>
+            <if test="year != null">
+                `year`,
+            </if>
+            <if test="subjectCode != null">
+                subject_code,
+            </if>
+            <if test="subjectName != null">
+                subject_name,
+            </if>
+            <if test="batchCode != null">
+                batch_code,
+            </if>
+            <if test="batchName != null">
+                batch_name,
+            </if>
+            <if test="deliverType != null">
+                deliver_type,
+            </if>
+            <if test="planNum != null">
+                plan_num,
+            </if>
+            <if test="actualNum != null">
+                actual_num,
+            </if>
+            <if test="maxScore != null">
+                max_score,
+            </if>
+            <if test="minScore != null">
+                min_score,
+            </if>
+            <if test="avgScore != null">
+                avg_score,
+            </if>
+            <if test="maxRank != null">
+                max_rank,
+            </if>
+            <if test="minRank != null">
+                min_rank,
+            </if>
+            <if test="avgRank != null">
+                avg_rank,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="collegeId != null">
+                #{collegeId,jdbcType=VARCHAR},
+            </if>
+            <if test="enrollId != null">
+                #{enrollId,jdbcType=VARCHAR},
+            </if>
+            <if test="enrollName != null">
+                #{enrollName,jdbcType=VARCHAR},
+            </if>
+            <if test="year != null">
+                #{year,jdbcType=INTEGER},
+            </if>
+            <if test="subjectCode != null">
+                #{subjectCode,jdbcType=VARCHAR},
+            </if>
+            <if test="subjectName != null">
+                #{subjectName,jdbcType=VARCHAR},
+            </if>
+            <if test="batchCode != null">
+                #{batchCode,jdbcType=VARCHAR},
+            </if>
+            <if test="batchName != null">
+                #{batchName,jdbcType=VARCHAR},
+            </if>
+            <if test="deliverType != null">
+                #{deliverType,jdbcType=INTEGER},
+            </if>
+            <if test="planNum != null">
+                #{planNum,jdbcType=INTEGER},
+            </if>
+            <if test="actualNum != null">
+                #{actualNum,jdbcType=INTEGER},
+            </if>
+            <if test="maxScore != null">
+                #{maxScore,jdbcType=FLOAT},
+            </if>
+            <if test="minScore != null">
+                #{minScore,jdbcType=FLOAT},
+            </if>
+            <if test="avgScore != null">
+                #{avgScore,jdbcType=FLOAT},
+            </if>
+            <if test="maxRank != null">
+                #{maxRank,jdbcType=INTEGER},
+            </if>
+            <if test="minRank != null">
+                #{minRank,jdbcType=INTEGER},
+            </if>
+            <if test="avgRank != null">
+                #{avgRank,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>
