@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunxiaosheng.spider.dao.EnrollPlanDao">
+
+    <resultMap id="BaseResultMap" type="com.yunxiaosheng.spider.dto.EnrollPlan">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="college_id" jdbcType="VARCHAR" property="collegeId"/>
+        <result column="enroll_id" jdbcType="VARCHAR" property="enrollId"/>
+        <result column="enroll_name" jdbcType="VARCHAR" property="enrollName"/>
+        <result column="major_code" jdbcType="VARCHAR" property="majorCode"/>
+        <result column="major_name" jdbcType="VARCHAR" property="majorName"/>
+        <result column="year" jdbcType="INTEGER" property="year"/>
+        <result column="subject_code" jdbcType="VARCHAR" property="subjectCode"/>
+        <result column="subject_name" jdbcType="VARCHAR" property="subjectName"/>
+        <result column="batch_code" jdbcType="VARCHAR" property="batchCode"/>
+        <result column="batch_name" jdbcType="VARCHAR" property="batchName"/>
+        <result column="plan_num" jdbcType="INTEGER" property="planNum"/>
+        <result column="tuition" jdbcType="INTEGER" property="tuition"/>
+        <result column="duration" jdbcType="INTEGER" property="duration"/>
+        <result column="education_level" jdbcType="VARCHAR" property="educationLevel"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    </resultMap>
+
+    <insert id="insertEnrollPlan" parameterType="com.yunxiaosheng.spider.dto.EnrollPlan">
+        insert into tb_ha_enroll_plan
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="collegeId != null">
+                college_id,
+            </if>
+            <if test="enrollId != null">
+                enroll_id,
+            </if>
+            <if test="enrollName != null">
+                enroll_name,
+            </if>
+            <if test="majorCode != null">
+                major_code,
+            </if>
+            <if test="majorName != null">
+                major_name,
+            </if>
+            <if test="year != null">
+                `year`,
+            </if>
+            <if test="subjectCode != null">
+                subject_code,
+            </if>
+            <if test="subjectName != null">
+                subject_name,
+            </if>
+            <if test="batchCode != null">
+                batch_code,
+            </if>
+            <if test="batchName != null">
+                batch_name,
+            </if>
+            <if test="planNum != null">
+                plan_num,
+            </if>
+            <if test="tuition != null">
+                tuition,
+            </if>
+            <if test="duration != null">
+                duration,
+            </if>
+            <if test="educationLevel != null">
+                education_level,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="collegeId != null">
+                #{collegeId,jdbcType=VARCHAR},
+            </if>
+            <if test="enrollId != null">
+                #{enrollId,jdbcType=VARCHAR},
+            </if>
+            <if test="enrollName != null">
+                #{enrollName,jdbcType=VARCHAR},
+            </if>
+            <if test="majorCode != null">
+                #{majorCode,jdbcType=VARCHAR},
+            </if>
+            <if test="majorName != null">
+                #{majorName,jdbcType=VARCHAR},
+            </if>
+            <if test="year != null">
+                #{year,jdbcType=INTEGER},
+            </if>
+            <if test="subjectCode != null">
+                #{subjectCode,jdbcType=VARCHAR},
+            </if>
+            <if test="subjectName != null">
+                #{subjectName,jdbcType=VARCHAR},
+            </if>
+            <if test="batchCode != null">
+                #{batchCode,jdbcType=VARCHAR},
+            </if>
+            <if test="batchName != null">
+                #{batchName,jdbcType=VARCHAR},
+            </if>
+            <if test="planNum != null">
+                #{planNum,jdbcType=INTEGER},
+            </if>
+            <if test="tuition != null">
+                #{tuition,jdbcType=INTEGER},
+            </if>
+            <if test="duration != null">
+                #{duration,jdbcType=INTEGER},
+            </if>
+            <if test="educationLevel != null">
+                #{educationLevel,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

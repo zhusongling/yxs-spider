@@ -35,14 +35,14 @@ public class EnrollScoreController {
     @Autowired
     EnrollScoreDao enrollScoreDao;
 
-    @GetMapping("queryInfo")
-    public Map<String, Object> queryInfo(@RequestParam("pageIndex") int pageIndex,
-                                         @RequestParam("kl") String kl,
-                                         @RequestParam("pc") String pc,
-                                         @RequestParam("subjectCode") String subjectCode,
-                                         @RequestParam("subjectName") String subjectName,
-                                         @RequestParam("batchCode") String batchCode,
-                                         @RequestParam("batchName") String batchName) {
+    @GetMapping("score")
+    public Map<String, Object> score(@RequestParam("pageIndex") int pageIndex,
+                                     @RequestParam("kl") String kl,
+                                     @RequestParam("pc") String pc,
+                                     @RequestParam("subjectCode") String subjectCode,
+                                     @RequestParam("subjectName") String subjectName,
+                                     @RequestParam("batchCode") String batchCode,
+                                     @RequestParam("batchName") String batchName) {
         String url = BASE_URL + "/QueryInfo";
 
         HttpHeaders headers = new HttpHeaders();
@@ -135,7 +135,7 @@ public class EnrollScoreController {
             }
 
             if (pageIndex < pageSize) {
-                this.queryInfo(pageIndex + 1, kl, pc, subjectCode, subjectName, batchCode, batchName);
+                this.score(pageIndex + 1, kl, pc, subjectCode, subjectName, batchCode, batchName);
             }
 
         } catch (Exception e) {
